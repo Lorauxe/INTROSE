@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `attendance` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `attendance`;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: attendance
@@ -14,6 +16,34 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `checker`
+--
+
+DROP TABLE IF EXISTS `checker`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `checker` (
+  `checker_id` int(11) NOT NULL,
+  `fname` varchar(45) NOT NULL,
+  `mname` varchar(45) DEFAULT NULL,
+  `lname` varchar(45) NOT NULL,
+  `email_add` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`checker_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checker`
+--
+
+LOCK TABLES `checker` WRITE;
+/*!40000 ALTER TABLE `checker` DISABLE KEYS */;
+INSERT INTO `checker` VALUES (1,'Mama','Poko','Yeah','mpy@dlsu.edu.ph','mpy'),(2,'Mimi','Peni','Baba','mpb@dlsu.edu.ph','mpb');
+/*!40000 ALTER TABLE `checker` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `class`
@@ -79,34 +109,6 @@ INSERT INTO `course` VALUES ('COMALGE','Computer Algebra',2,1),('COMORGA','Compu
 UNLOCK TABLES;
 
 --
--- Table structure for table `encoder`
---
-
-DROP TABLE IF EXISTS `encoder`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `encoder` (
-  `encoder_id` int(11) NOT NULL,
-  `fname` varchar(45) NOT NULL,
-  `mname` varchar(45) DEFAULT NULL,
-  `lname` varchar(45) NOT NULL,
-  `email_add` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  PRIMARY KEY (`encoder_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `encoder`
---
-
-LOCK TABLES `encoder` WRITE;
-/*!40000 ALTER TABLE `encoder` DISABLE KEYS */;
-INSERT INTO `encoder` VALUES (1,'Mama','Poko','Yeah','mpy@dlsu.edu.ph','mpy'),(2,'Mimi','Peni','Baba','mpb@dlsu.edu.ph','mpb');
-/*!40000 ALTER TABLE `encoder` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `faculty`
 --
 
@@ -146,7 +148,7 @@ CREATE TABLE `record` (
   `record_id` decimal(10,0) NOT NULL,
   `classID` int(11) NOT NULL,
   `date` date NOT NULL,
-  `encoder_id` varchar(45) NOT NULL,
+  `checker_id` varchar(45) NOT NULL,
   `remarks` varchar(45) DEFAULT NULL,
   `status` varchar(4) DEFAULT NULL,
   PRIMARY KEY (`record_id`)
@@ -180,4 +182,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-09 15:37:16
+-- Dump completed on 2016-11-09 22:01:27
