@@ -15,9 +15,9 @@
 		
 		if(isset($_POST["uname"]) && isset($_POST["pword"])){
 			
-			$sql1 = "	select encoder_id, password
-						from encoder
-						where encoder_id = '" .  $_POST["uname"] . "' and  '" . $_POST["pword"] . "' = password;";
+			$sql1 = "	select checker_id, password
+						from checker
+						where checker_id = '" .  $_POST["uname"] . "' and  '" . $_POST["pword"] . "' = password;";
 
 			
 			$result = $conn->query($sql1);
