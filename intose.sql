@@ -83,6 +83,31 @@ INSERT INTO `class` VALUES (0,'A11','COMALGE',2,'09:00:00','12:00:00','T','A201'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `college`
+--
+
+DROP TABLE IF EXISTS `college`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `college` (
+  `college_id` int(11) NOT NULL,
+  `college_code` varchar(45) NOT NULL,
+  `college_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`college_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `college`
+--
+
+LOCK TABLES `college` WRITE;
+/*!40000 ALTER TABLE `college` DISABLE KEYS */;
+INSERT INTO `college` VALUES (1,'CCS','College of Computer Studies'),(2,'RVRCOB','Ramon V. del Rosario College of Business'),(3,'COS','College of Science'),(4,'SOE','School of Economics'),(5,'CLA','College of Liberal Arts'),(6,'BAGCED','Br. Andrew Gonzalez FSC College of Education');
+/*!40000 ALTER TABLE `college` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `course`
 --
 
@@ -94,6 +119,7 @@ CREATE TABLE `course` (
   `course_name` varchar(50) NOT NULL,
   `student_units` int(11) NOT NULL,
   `faculty_units` int(11) NOT NULL,
+  `departmentID` int(11) DEFAULT NULL,
   PRIMARY KEY (`course_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -104,8 +130,33 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES ('COMALGE','Computer Algebra',2,1),('COMORGA','Computer Organization',3,2),('COMPASM','Computer Architechture Series 1',3,2),('COMPRO2','Computer Programming 2',3,2),('DISCTRU','Discrete Mathematics',2,3),('ELECDSN','Electronic Design',3,1),('ENGLRES','English and Research',3,1),('INTROSE','Introduction to Software Engineering',3,1),('LASARE2','Lasallian Recollection 2',0,1),('OBJECTP','Object Oriented Programming',3,1),('PERSEF1','Personal Self 1',0,2),('SOCTEC2','Society and Technology 2',3,1);
+INSERT INTO `course` VALUES ('COMALGE','Computer Algebra',2,1,NULL),('COMORGA','Computer Organization',3,2,NULL),('COMPASM','Computer Architechture Series 1',3,2,NULL),('COMPRO2','Computer Programming 2',3,2,NULL),('DISCTRU','Discrete Mathematics',2,3,NULL),('ELECDSN','Electronic Design',3,1,NULL),('ENGLRES','English and Research',3,1,NULL),('INTROSE','Introduction to Software Engineering',3,1,NULL),('LASARE2','Lasallian Recollection 2',0,1,NULL),('OBJECTP','Object Oriented Programming',3,1,NULL),('PERSEF1','Personal Self 1',0,2,NULL),('SOCTEC2','Society and Technology 2',3,1,NULL);
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `department`
+--
+
+DROP TABLE IF EXISTS `department`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `department` (
+  `departmentID` int(11) NOT NULL,
+  `department_name` varchar(45) NOT NULL,
+  `college_id` varchar(45) NOT NULL,
+  PRIMARY KEY (`departmentID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `department`
+--
+
+LOCK TABLES `department` WRITE;
+/*!40000 ALTER TABLE `department` DISABLE KEYS */;
+INSERT INTO `department` VALUES (1,'CT','1'),(2,'ST','1'),(4,'IT','1'),(5,'Biology','3'),(6,'Mathematics','3'),(7,'Physics','3'),(8,'Chemistry','3'),(9,'Behavioral Sciences','5'),(10,'Communication','5'),(11,'Literature','5'),(12,'Filipino','5'),(13,'History','5'),(14,'International Studies','5'),(15,'Philosophy','5'),(16,'Political Science','5'),(17,'Psychology','5'),(18,'Theology and Religious Education','5'),(19,'CEPD','6'),(20,'DEAL','6'),(21,'ELMD','6'),(22,'PED','6'),(23,'SED','6'),(24,'Economics','4'),(25,'Accountancy','2'),(26,'Commerical Law','2'),(27,'Decisional Sciences and Innovation Department','2'),(28,'MFI','2'),(29,'MOD','2'),(30,'Marketing Management','2');
+/*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -145,11 +196,11 @@ DROP TABLE IF EXISTS `record`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `record` (
-  `record_id` decimal(10,0) NOT NULL,
+  `record_id` int(11) NOT NULL,
   `classID` int(11) NOT NULL,
   `date` date NOT NULL,
   `checker_id` varchar(45) NOT NULL,
-  `remarks` varchar(45) DEFAULT NULL,
+  `remarks_id` varchar(45) DEFAULT NULL,
   `status` varchar(4) DEFAULT NULL,
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -163,6 +214,29 @@ LOCK TABLES `record` WRITE;
 /*!40000 ALTER TABLE `record` DISABLE KEYS */;
 INSERT INTO `record` VALUES (1,1,'2016-10-20','EDS','A',NULL),(2,2,'2016-10-18','ERF','P',NULL),(3,2,'2016-10-16','QWE','A',NULL),(4,3,'2016-10-22','EDS','ED',NULL),(5,2,'2016-10-30','QWE','A',NULL);
 /*!40000 ALTER TABLE `record` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `remarks`
+--
+
+DROP TABLE IF EXISTS `remarks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `remarks` (
+  `remarks_id` varchar(2) NOT NULL,
+  `description` varchar(45) NOT NULL,
+  PRIMARY KEY (`remarks_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `remarks`
+--
+
+LOCK TABLES `remarks` WRITE;
+/*!40000 ALTER TABLE `remarks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `remarks` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -182,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-09 22:01:27
+-- Dump completed on 2016-11-18  8:50:47
