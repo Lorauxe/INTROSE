@@ -172,7 +172,8 @@ CREATE TABLE `faculty` (
   `mname` varchar(30) DEFAULT NULL,
   `lname` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `rank` varchar(45) NOT NULL,
+  `rank` varchar(45) DEFAULT NULL,
+  `department_id` varchar(45) NOT NULL,
   PRIMARY KEY (`faculty_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -184,7 +185,7 @@ CREATE TABLE `faculty` (
 
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
-INSERT INTO `faculty` VALUES (1,'Beep','Boop','Bop','bbb@mail.com','A'),(2,'Betty','Ban','Apple','bba@mail.com','C'),(3,'Sans','Courel','Glue','scg@mail.com','D'),(4,'Memery','Canban','Red','mcr@mail.com','AAA'),(5,'Sudan','Holm','Stock','shs@mail.com','A'),(6,'Durian','Orange','Calamnsi','doc@mail.com','A'),(7,'Social','Society','Science','sss@mail.com','D'),(8,'Duby','Ruby','Scuby','drs@mail.com','B'),(9,'Secni','Blue','Gold','sbg@mail.com','C'),(10,'Plain','Love','Day','pld@mail.com','AAA');
+INSERT INTO `faculty` VALUES (1,'Beep','Boop','Bop','bbb@mail.com','A','1'),(2,'Betty','Ban','Apple','bba@mail.com','C','2'),(3,'Sans','Courel','Glue','scg@mail.com','D','1'),(4,'Memery','Canban','Red','mcr@mail.com','AAA','4'),(5,'Sudan','Holm','Stock','shs@mail.com','A','4'),(6,'Durian','Orange','Calamnsi','doc@mail.com','A','14'),(7,'Social','Society','Science','sss@mail.com','D','20'),(8,'Duby','Ruby','Scuby','drs@mail.com','B','1'),(9,'Secni','Blue','Gold','sbg@mail.com','C','2'),(10,'Plain','Love','Day','pld@mail.com','AAA','16'),(21,'Banna','Pana','Cal','ban_cal@gmail.com','regular','13');
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,14 +197,14 @@ DROP TABLE IF EXISTS `record`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `record` (
-  `record_id` int(11) NOT NULL,
+  `record_id` int(11) NOT NULL AUTO_INCREMENT,
   `classID` int(11) NOT NULL,
   `date` date NOT NULL,
   `checker_id` varchar(45) NOT NULL,
   `remarks_id` varchar(45) DEFAULT NULL,
   `status` varchar(4) DEFAULT NULL,
   PRIMARY KEY (`record_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +213,7 @@ CREATE TABLE `record` (
 
 LOCK TABLES `record` WRITE;
 /*!40000 ALTER TABLE `record` DISABLE KEYS */;
-INSERT INTO `record` VALUES (1,1,'2016-10-20','EDS','A',NULL),(2,2,'2016-10-18','ERF','P',NULL),(3,2,'2016-10-16','QWE','A',NULL),(4,3,'2016-10-22','EDS','ED',NULL),(5,2,'2016-10-30','QWE','A',NULL);
+INSERT INTO `record` VALUES (1,1,'2016-10-20','EDS','A',NULL),(2,2,'2016-10-18','ERF','P',NULL),(3,2,'2016-10-16','QWE','A',NULL),(4,3,'2016-10-22','EDS','ED',NULL),(5,2,'2016-10-30','QWE','A',NULL),(6,3,'2016-11-26','B','A','done'),(7,3,'2016-11-22','Cine','A','done');
 /*!40000 ALTER TABLE `record` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-18  8:50:47
+-- Dump completed on 2016-11-22  2:34:49
