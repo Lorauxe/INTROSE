@@ -43,7 +43,7 @@
 	<body>
 	
 	<form action="login.php" method="post">
-	Username: <input type="text" name="uname"><br>
+	Username: <input type="text" name="uname" required><br>
 	Password: <input type="text" name="pword"><br>
 	<input type="submit">
 	</form>
