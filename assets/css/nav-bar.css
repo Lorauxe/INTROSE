@@ -1,0 +1,21 @@
+	body{
+ 		min-height: 2000px;
+  		margin-top: 0px;
+  	}
+  	#navbar{
+  		background-color: #007849;
+  		margin-left: 10px;
+  	}
+  	#nav, #navItem{
+  		list-style-type: none;
+  		font-family: Arial;
+  		color: white;
+  		font-size: 16px;
+  	}
+  	#navItem:hover{
+  		background-color: #57BC90;
+  	}
+  	#navItem:active{
+  		background-color: #57BC90;
+  	}
+  	
