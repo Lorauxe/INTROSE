@@ -5,7 +5,7 @@
 		<style type = "text/css">
 			body{
 				overflow: hidden;
-				background:url('../assets/bgs/2.jpg') fixed;
+				background:url('../../assets/bgs/2.jpg') fixed;
 				background-color: #fff;
 				background-position: 5% 5%;
 				background-size: 120% auto;
@@ -34,7 +34,7 @@
 			
 			@font-face {
 				font-family: FUTURA;
-				src: url(../assets/fonts/FUTURAN.ttf);
+				src: url(../../assets/fonts/FUTURAN.TTF);
 			}
 			
 			form {
@@ -47,7 +47,7 @@
 			
 			@font-face {
 				font-family: MINION;
-				src: url(../assets/fonts/MinionPro-Regular.otf);
+				src: url(../../assets/fonts/MinionPro-Regular.otf);
 			}
 			
 			.ins {
@@ -94,7 +94,7 @@
 	
 	<div id ="fcontent">
 		
-		<form action="login/validate" method="post">
+		<form action="<?php echo base_url('index.php/login/validate'); ?>" method="post">
 			<span id = "uid">
 				User ID<br>
 				<input class = "ins" type="text" name="uname"><br><br>
