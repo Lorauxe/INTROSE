@@ -7,14 +7,14 @@
 
 		<!-- IMPORTANT -->
 		<script src = "jquery-3.0.0.js"></script>
-		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
-		<link type="text/javascript" href="js/bootstrap.min.js"/>
+		<link type="text/css" rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="../../assets/css/bootstrap.css"/>
+		<link type="text/javascript" href="../../assets/js/bootstrap.min.js"/>
 		<link type="text/css" rel="stylesheet" href="shop-item.css"/>
-		<link type="text/css" rel="stylesheet" href="css/nav-bar.css"/>
-		<link type="text/css" rel="stylesheet" href="css/message-tab.css"/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="../../assets/css/nav-bar.css"/>
+		<link type="text/css" rel="stylesheet" href="../../assets/css/message-tab.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+		<script src="../../assets/js/bootstrap.min.js"></script>
 		<script>
 		$(document).ready(function(){
 			$("#editFI").click(function(){
@@ -113,16 +113,16 @@
 	<nav id="navbar" class="navbar bar-inverse navbar-fixed-top"">
 	  <div id="navbar" class="container-fluid">
 		<div id="navbar" class="navbar-header">
-		  <a id="navItem" class="navbar-brand navItem" id="logo" href="Admin_Home.php">FAMS2.0</a>
+		  <a id="navItem" class="navbar-brand navItem" id="logo" href="<?PHP echo base_url('index.php/c_home')?>">FAMS2.0</a>
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a id="navItem" class="navItem" href="Faculty_Plantilla.php">Faculty Plantilla</a></li>
-			<li><a id="navItem" class="navItem" href="General_Records.php">General Records</a></li>
+			<li><a id="navItem" class="navItem" href="<?PHP echo base_url('index.php/c_genrec/start'); ?>">General Records</a></li>
 			<li><a id="navItem" class="navItem" href="Faculty_Feedback.php">Faculty Feedback</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			  <li><a id="navItem" class="navItem" href="#"><span class="glyphicon glyphicon-user"></span> Help</a></li>
-			  <li><a id="navItem" class="navItem"href="#"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+			  <li><a id="navItem" class="navItem" href="<?PHP echo base_url('index.php/login/logout') ?>"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
 			</ul>
 		  </div>
 		</nav>
@@ -153,38 +153,24 @@
 								  </div>
 								  <div class="modal-body">
 									<!-- start of form for Add Report -->
-									<form class="container" id="A_REC" action="<?php ?>" method="POST">
+									<form class="container" id="A_REC" action="<?php echo base_url('index.php/c_genrec/add_Record') ?>" method="POST">
 									  <div class="form-group">
 										<label>Faculty ID:</label>
-										<div class="row"><div class="col-lg-3"><input class="form-control" name="a_id_no" id="facID"></div></div>
+										<div class="row"><div class="col-lg-3"><input class="form-control" name="a_id_no" id="facID" required></div></div>
 									  </div>
 									  <div class="form-group">
 										<label>Course Code:</label>
-										<div class="row"><div class="col-lg-3"><input class="form-control" name="a_crse_co" id="course"></div></div>
+										<div class="row"><div class="col-lg-3"><input class="form-control" name="a_crse_co" id="course" required></div></div>
 									  </div>
 									  <div class="form-group">
 										<label>Section:</label>
-										<div class="row"><div class="col-lg-3"><input class="form-control" name="a_sec_id" id="section"></div></div>
-									  </div>
-									  <div class="row">
-										<div class="col-lg-1">
-											<div class="form-group">
-												<label>Day:</label>
-												<div class="row"><div class="col-lg-12"><input class="form-control" name="a_day_wk" id="day" disabled></div></div>
-											 </div>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-group">
-												<label>Time:</label>
-												<div class="row"><div class="col-lg-6"><input class="form-control" name="a_time_dy" id="time" disabled></div></div>
-											 </div>
-										</div>
+										<div class="row"><div class="col-lg-3"><input class="form-control" name="a_sec_id" id="section" required></div></div>
 									  </div>
 									  <div class="row">
 										<div class="col-lg-3">
 											<div class="form-group">
-												<label>Room:</label>
-												<div class="row"><div class="col-lg-12"><input class="form-control" name="a_rm_no" id="room" disabled></div></div>
+												<label>Date:</label>
+												<div class="row"><div class="col-lg-12"><input type = "date" class="form-control" name="a_date" id="room" required></div></div>
 											 </div>
 										</div>
 									  </div>
@@ -193,21 +179,20 @@
 										<div class="row">
 											<div class="col-lg-3">
 												<select class="form-control" name="a_rmrk" id="remark">
-													<option>AB - Absent</option>
-													<option>LA - Late</option>
-													<option>AB - Absent</option>
-													<option>SB - Substitute</option>
-													<option>SW - SeatWork</option>
-													<option>VR - Vacant Room</option>
-													<option>ED - Early Dismissal</option>
-													<option>US - Unscheduled Class</option>
+													<option value = "AB">AB - Absent</option>
+													<option value = "LA">LA - Late</option>
+													<option value = "SB">SB - Substitute</option>
+													<option value = "SW">SW - SeatWork</option>
+													<option value = "VC">VR - Vacant Room</option>
+													<option value = "ED">ED - Early Dismissal</option>
+													<option value = "US">US - Unscheduled Class</option>
 												</select>
 											</div>
 										</div>
 									  </div>
 									  <div class="form-group">
 										<label>Checker:</label>
-										<div class="row"><div class="col-lg-3"><input class="form-control" name="a_chkr_id" id="checkerID"></div></div>
+										<div class="row"><div class="col-lg-3"><input class="form-control" name="a_chkr_id" id="checkerID" required></div></div>
 									  </div>
 									</form>
 									<!-- end of Add Report -->
@@ -242,13 +227,13 @@
 										<div class="row">
 											<div class="col-lg-3">
 												<select class="form-control" name="rsn_absnc" id="rsnAbsnc">
-													<option>SI - Sickness</option>
-													<option>PM - Personal Matters</option>
-													<option>CF - Conference</option>
-													<option>AC - Alternative Class</option>
-													<option>FT - Field Trip</option>
-													<option>OL - Online Class</option>
-													<option>OB - Official Business</option>
+													<option value = "SI">SI - Sickness</option>
+													<option value = "PM">PM - Personal Matters</option>
+													<option value = "CF">CF - Conference</option>
+													<option value = "AC">AC - Alternative Class</option>
+													<option value = "FT">FT - Field Trip</option>
+													<option value = "OL">OL - Online Class</option>
+													<option value = "OB">OB - Official Business</option>
 												</select>
 											</div>
 										</div>
@@ -405,81 +390,118 @@
 		<div id="main" class="container-fluid">
 			<div class="row">
 				<div class="col-lg-9">
-					<div id="imaginary_container"> 
-						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control"  placeholder="Search" >
-							<span class="input-group-addon">
-								<button type="submit">
-									<span class="glyphicon glyphicon-search"></span>
-								</button>  
-							</span>
+					<form method = "post" id = "SE_GREC" action = " <?PHP echo base_url('index.php/c_genrec/search'); ?>">
+						<div id="imaginary_container"> 
+							<div class="input-group stylish-input-group">
+								<input name = 'info' type="text" class="form-control" placeholder="Search" >
+								<span class="input-group-addon">
+									<button type="submit">
+										<span class="glyphicon glyphicon-search"></span>
+									</button> 
+								</span>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 				<div class="col-lg-3">
-					<select class="form-control" id="sel1">
-						<option>Id number</option>
-						<option>Class/ Section</option>
+					<select name = 'what' class="form-control" id="sel1" form = "SE_GREC">
+						<option value = "1">Id number</option>
+						<option value = "2">Class/ Section</option>
 					</select>
 				</div>
 			</div>
 		</div>
 		<!--Start of Search Result -->
-		<div id="main" class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<div class="row">
-								<h4 class="col-lg-2">Name: </h4><h4 class="col-lg-3">Ryan Dimaunahan</h4>
+		<?PHP
+			if(isset($GLOBALS['ADDREC'])){
+				echo '<div id="main" class="container-fluid">';
+				echo '<h2>' . $GLOBALS['ADDREC'] . '</h2>';
+				echo '</div>';		
+			}
+
+			if(isset($GLOBALS['searched'])){
+
+				echo '<div id="main" class="container-fluid">';
+
+				if($GLOBALS['searched'] == TRUE){
+
+					echo '<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<div class="row">
+										<h4 class="col-lg-2">Name: </h4><h4 class="col-lg-3">';
+					echo $faculty->fName . " ";
+					if(isset($faculty->mName))
+						echo $faculty->mName . " ";
+					echo $faculty->lName;
+					echo '</h4>
+									</div>
+									<div class="row">
+										<h4 class="col-lg-2">ID: </h4><h4 class="col-lg-3">';
+					echo $faculty->facID;
+					echo '</h4>
+									</div>
+									<div class="row">
+										<h4 class="col-lg-2">Department: </h4><h4 class="col-lg-3">';
+					echo $faculty->depName;
+					echo '</h4>
+									</div>
+								</div>
+								<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+										  <tr>
+											  <th data-field="id">Reference no.</th>
+											  <th data-field="date">Absent Date</th>
+											  <th data-field="Cou">Course</th>
+											  <th data-field="Sec">Section</th>
+											  <th data-field="Time">Day & Time</th>
+											  <th data-field="rm">Room</th>
+											  <th data-field="rmrk">Remark</th>
+											  <th data-field="encdr">Encoder</th>
+											  <th data-field="chkr">Checker</th>
+											  <th data-field="offt">Offered To</th>
+											  <th data-field="stts">Status</th>
+										  </tr>
+										</thead>
+										<tbody>';
+							
+						echo '<td>'. $record->recID .'</td>';
+						echo '<td>'. $record->recDate .'</td>';
+						echo '<td>'. $record->cCode .'</td>';
+						echo '<td>'. $record->secID .'</td>';
+						echo '<td>'. $dtr->dayTime. '</td>'; //. $record->sHour . $record->sMin . $record->eHour . $record->eMin . '</td>';
+						echo '<td>'. $dtr->room .'</td>';
+						echo '<td>'. $record->remark .'</td>';
+						echo '<td>'. $record->enID .' </td>';
+						echo '<td>'. $record->checkID .'</td>';
+						echo '<td>'. $record->nature .'</td>';
+						echo '<td>'. $record->status .'</td>';
+						
+						
+						echo '</tbody>
+									</table>
+								</div>
 							</div>
-							<div class="row">
-								<h4 class="col-lg-2">ID: </h4><h4 class="col-lg-3">123456</h4>
-							</div>
-							<div class="row">
-								<h4 class="col-lg-2">Department: </h4><h4 class="col-lg-3">Software Technology</h4>
-							</div>
+							<a class = "butt" href="'.  base_url('index.php/c_genrec/prevRecord') . '" > <button id="table_f" type="button" class="btn btn-default navbar-btn" ' .  $GLOBALS['HASPREV'] . '>Previous</button> </a>
+							<a class = "butt" href="' . base_url('index.php/c_genrec/nextRecord') . '" ><button id="table_f" type="button" class="btn btn-default navbar-btn" '. $GLOBALS['HASNEXT'].'>  Next  </button> </a>
+							<button id="table_f" type="button" class="btn btn-default navbar-btn"> Delete </button>
 						</div>
-						<div class="panel-body">
-							<table class="table table-bordered">
-								<thead>
-								  <tr>
-									  <th data-field="id">Reference no.</th>
-									  <th data-field="date">Absent Date</th>
-									  <th data-field="Cou">Course</th>
-									  <th data-field="Sec">Section</th>
-									  <th data-field="Time">Day& Time</th>
-									  <th data-field="rm">Room</th>
-									  <th data-field="rmrk">Remark</th>
-									  <th data-field="encdr">Encoder</th>
-									  <th data-field="chkr">Checker</th>
-									  <th data-field="offt">Offered To</th>
-									  <th data-field="stts">Status</th>
-								  </tr>
-								</thead>
-								<tbody>
-									<td>09121651</td>
-									<td>09/12/2016</td>
-									<td>INTROSE</td> 
-									<td>S11</td>
-									<td>T09001100</td>
-									<td>G206</td>
-									<td>AB</td>
-									<td>1178632</td>
-									<td>1223434</th>
-									<td>U</td>
-									<td>MADE UP</td>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<button id="table_f" type="button" class="btn btn-default navbar-btn">Previous</button>
-					<button id="table_f" type="button" class="btn btn-default navbar-btn">  Next  </button>
-					<button id="table_f" type="button" class="btn btn-default navbar-btn"> Delete </button>
-				</div>
-			</div>
-		</div>
+					</div>';
+				}else
+					echo '<h2> No Results Found </h2>';
+				echo '<div>';
+			}
+		?>
 		<!-- end of Search Results -->
 		
 	</body>
 </html>
+
+<style type = "text/css">
+.butt:hover{
+	text-decoration: none;
+}
+
+</style>

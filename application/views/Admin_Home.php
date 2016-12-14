@@ -10,11 +10,11 @@
 
 	<!-- IMPORTANT -->
 	<script src = "jquery-3.0.0.js"></script>
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
-	<script src="js/bootstrap.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
+	<link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.css"/>
+	<script src="../assets/js/bootstrap.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="shop-item.css"/>
-	<link type="text/css" rel="stylesheet" href="css/nav-bar.css"/>
+	<link type="text/css" rel="stylesheet" href="../css/nav-bar.css"/>
 </head>
 <style>
 	<!-- FOR TYPING EFFECT -->
@@ -84,6 +84,10 @@
         <div id="navbar" class="navbar-header">
           <a class="navbar-brand" href="Admin_Home.php" style="color: white;">FAMS 2.0</a>
         </div>
+		<ul class="nav navbar-nav navbar-right">
+			  <li><a id="navItem" class="navItem" href="#"><span class="glyphicon glyphicon-user"></span> Help</a></li>
+			  <li><a id="navItem" class="navItem" href="<?PHP echo base_url('index.php/login/logout') ?>"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+		</ul>
       </div>
     </nav>
  	<!-- END OF NAVIGATION BAR -->
@@ -100,15 +104,15 @@
 		<p id="instruct" class="line-1">Choose a button below:</p>
 		<!-- FIRST ROW OF CHOICES -->
 		<div id="SetA">
-			<a href="Faculty_Plantilla.php"><input type="image" id="img" src="images/choice1.png"/></a>
-			<a href="General_Records.php"><input type="image" id="img" src="images/choice2.png"/></a>
-			<a href="Faculty_Plantilla.php"><input type="image" id="img" src="images/choice3.png"/></a><br>
+			<a href="<?PHP echo base_url('index.php/c_genrec/start'); ?>"><input type="image" id="img" src="../assets/bgs/choice1.png"/></a>
+			<a href="<?PHP echo base_url('index.php/c_genrec/start'); ?>"><input type="image" id="img" src="../assets/bgs/choice2.png"/></a>
+			<a href="Faculty_Plantilla.php"><input type="image" id="img" src="../assets/bgs/choice3.png"/></a><br>
 		</div>
 		<!-- SECOND ROW OF CHOICES -->
 		<div id="SetB">
-			<a href="Faculty_Plantilla.php"><input type="image" id="img" src="images/choice4.png"/></a>
-			<a href="Faculty_Feedback.php"><input type="image" id="img" style="margin-left: 28px;" src="images/choice5.png"/></a>
-			<input type="image" style="margin-left: 60px;" id="img" src="images/choice6.png"/>
+			<a href="Faculty_Plantilla.php"><input type="image" id="img" src="../assets/bgs/choice4.png"/></a>
+			<a href="Faculty_Feedback.php"><input type="image" id="img" style="margin-left: 28px;" src="../assets/bgs/choice5.png"/></a>
+			<input type="image" style="margin-left: 60px;" id="img" src="../assets/bgs/choice6.png"/>
 		</div>
 	</div>
 	<!-- END OF CHOICES -->
